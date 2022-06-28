@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gdut.minsappofteachingforchildren.mapper.MomentImgMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.gdut.minsappofteachingforchildren.entity.MomentImg">
+        <id column="id" property="id" />
+        <result column="moment_id" property="momentId" />
+        <result column="img_src" property="imgSrc" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, moment_id, img_src
+    </sql>
+
+</mapper>

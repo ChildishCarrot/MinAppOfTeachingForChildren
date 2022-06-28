@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gdut.minsappofteachingforchildren.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.gdut.minsappofteachingforchildren.entity.User">
+        <id column="user_id" property="userId" />
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="user_nickname" property="userNickname" />
+        <result column="user_avatar" property="userAvatar" />
+        <result column="IDCard" property="idcard" />
+        <result column="real_name" property="realName" />
+        <result column="live" property="live" />
+        <result column="open_id" property="openId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        user_id, username, password, user_nickname, user_avatar, IDCard, real_name, live, open_id
+    </sql>
+
+</mapper>
