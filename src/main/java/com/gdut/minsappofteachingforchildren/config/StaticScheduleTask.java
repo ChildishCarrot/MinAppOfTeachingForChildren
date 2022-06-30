@@ -30,12 +30,17 @@ public class StaticScheduleTask {
     private void configureTasks(){
         //将redis中的点赞数量同步到mysql
         Set<String> keys = redisTemplate.keys("momentLikeNum:*");
-        for(String key : keys){
-            String id = key.substring(14);
-            Moment moment = momentService.getById(id);
+        if(keys!=null){
+            for(String key : keys){
+                String id = key.substring(14);
+                Moment moment = momentService.getById(id);
+                if(moment!=null){
+                    moment.setLikeNum((int)redisTemplate.opsForValue().get(key));
+                    momentService.updateById(moment);
+                }
 
-            moment.setLikeNum((int)redisTemplate.opsForValue().get(key));
-            momentService.updateById(moment);
+            }
         }
+
     }
 }

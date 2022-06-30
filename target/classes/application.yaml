@@ -15,14 +15,15 @@ spring:
 #    password: 2022gdutLUOHAOJUN
   datasource:
     username: root
-    password: admin
-    url: jdbc:mysql://106.53.151.173:3306/minsappofteachingforchildren?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    password: 123456
+    url: jdbc:mysql://localhost:3306/minsappofteachingforchildren?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+
+#    username: root
+#    password: admin
+#    url: jdbc:mysql://106.53.151.173:3306/minsappofteachingforchildren?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 server:
   port: 8888
 
 dns: http://localhost:8888/
-
-
-

@@ -1,0 +1,6 @@
+com\gdut\minsappofteachingforchildren\service\UserService.class
+com\gdut\minsappofteachingforchildren\controller\HelloWorldController.class
+com\gdut\minsappofteachingforchildren\mapper\UserMapper.class
+com\gdut\minsappofteachingforchildren\config\SwaggerConfig.class
+com\gdut\minsappofteachingforchildren\MinsAppOfTeachingForChildrenApplication.class
+com\gdut\minsappofteachingforchildren\entity\User.class

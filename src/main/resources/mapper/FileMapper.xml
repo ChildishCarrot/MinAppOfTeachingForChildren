@@ -6,12 +6,11 @@
 
     <resultMap id="BaseResultMap" type="com.gdut.minsappofteachingforchildren.entity.myFile">
             <id property="id" column="id" jdbcType="BIGINT"/>
-            <result property="uid" column="uid" jdbcType="BIGINT"/>
             <result property="localAddress" column="local_address" jdbcType="VARCHAR"/>
             <result property="suffix" column="suffix" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,local_address,suffix,uid
+        id,local_address,suffix
     </sql>
 </mapper>

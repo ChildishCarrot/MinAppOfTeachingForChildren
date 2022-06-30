@@ -40,7 +40,7 @@ public class FileController {
 
     @ApiOperation("图片上传")
     @PostMapping("/upload")
-    public Result upload(@RequestPart("file") MultipartFile file, HttpServletRequest req) throws IOException {
+    public Result<String> upload(@RequestPart("file") MultipartFile file, HttpServletRequest req) throws IOException {
         //存储路径
         ApplicationHome applicationHome = new ApplicationHome(this.getClass());
         String path = applicationHome.getDir().getParentFile().getParentFile().getAbsolutePath()
@@ -62,84 +62,84 @@ public class FileController {
                 file.transferTo(new File(path+Format._MP4.getFormat()+File.separator+filename));
                 myFile.setSuffix(Format._MP4.getFormat());
                 if (fileService.save(myFile)) {
-                    return new Result("200","上传成功");
+                    return new Result("200","上传成功",dns+Format._MP4.getFormat()+File.separator+filename);
                 }
             }
             if(format.equals(Format._MOV.getValue())){
                 file.transferTo(new File(path+Format._MOV.getFormat()+File.separator+filename));
                 myFile.setSuffix(Format._MOV.getFormat());
                 if (fileService.save(myFile)) {
-                    return new Result("200","上传成功");
+                    return new Result("200","上传成功",dns+Format._MOV.getFormat()+File.separator+filename);
                 }
             }
             if(format.equals(Format._M4V.getValue())){
                 file.transferTo(new File(path+Format._M4V.getFormat()+File.separator+filename));
                 myFile.setSuffix(Format._M4V.getFormat());
                 if (fileService.save(myFile)) {
-                    return new Result("200","上传成功");
+                    return new Result("200","上传成功",dns+Format._M4V.getFormat()+File.separator+filename);
                 }
             }
             if(format.equals(Format._3GP.getValue())){
                 file.transferTo(new File(path+Format._3GP.getFormat()+File.separator+filename));
                 myFile.setSuffix(Format._3GP.getFormat());
                 if (fileService.save(myFile)) {
-                    return new Result("200","上传成功");
+                    return new Result("200","上传成功",dns+Format._3GP.getFormat()+File.separator+filename);
                 }
             }
             if(format.equals(Format._AVI.getValue())){
                 file.transferTo(new File(path+Format._AVI.getFormat()+File.separator+filename));
                 myFile.setSuffix(Format._AVI.getFormat());
                 if (fileService.save(myFile)) {
-                    return new Result("200","上传成功");
+                    return new Result("200","上传成功",dns+Format._AVI.getFormat()+File.separator+filename);
                 }
             }
             if(format.equals(Format._M3U8.getValue())){
                 file.transferTo(new File(path+Format._M3U8.getFormat()+File.separator+filename));
                 myFile.setSuffix(Format._M3U8.getFormat());
                 if (fileService.save(myFile)) {
-                    return new Result("200","上传成功");
+                    return new Result("200","上传成功",dns+Format._M3U8.getFormat()+File.separator+filename);
                 }
             }
             if(format.equals(Format._WEBM.getValue())){
                 file.transferTo(new File(path+Format._WEBM.getFormat()+File.separator+filename));
                 myFile.setSuffix(Format._WEBM.getFormat());
                 if (fileService.save(myFile)) {
-                    return new Result("200","上传成功");
+                    return new Result("200","上传成功",dns+Format._WEBM.getFormat()+File.separator+filename);
                 }
             }
             if(format.equals(Format._JPG.getValue())){
                 file.transferTo(new File(path+Format._JPG.getFormat()+File.separator+filename));
                 myFile.setSuffix(Format._JPG.getFormat());
                 if (fileService.save(myFile)) {
-                    return new Result("200","上传成功");
+                    return new Result("200","上传成功",dns+Format._JPG.getFormat()+File.separator+filename);
                 }
             }
             if(format.equals(Format._PNG.getValue())){
                 file.transferTo(new File(path+Format._PNG.getFormat()+File.separator+filename));
                 myFile.setSuffix(Format._PNG.getFormat());
                 if (fileService.save(myFile)) {
-                    return new Result("200","上传成功");
+                    return new Result("200","上传成功",dns+Format._PNG.getFormat()+File.separator+filename);
                 }
             }
             if(format.equals(Format._SVG.getValue())){
                 file.transferTo(new File(path+Format._SVG.getFormat()+File.separator+filename));
                 myFile.setSuffix(Format._SVG.getFormat());
                 if (fileService.save(myFile)) {
-                    return new Result("200","上传成功");
+                    return new Result("200","上传成功",dns+Format._SVG.getFormat()+File.separator+filename);
                 }
             }
             if(format.equals(Format._WEBP.getValue())){
                 file.transferTo(new File(path+Format._WEBP.getFormat()+File.separator+filename));
                 myFile.setSuffix(Format._WEBP.getFormat());
                 if (fileService.save(myFile)) {
-                    return new Result("200","上传成功");
+                    return new Result("200","上传成功",dns+Format._WEBP.getFormat()+File.separator+filename);
                 }
             }
             if(format.equals(Format._GIF.getValue())){
                 file.transferTo(new File(path+Format._GIF.getFormat()+File.separator+filename));
                 myFile.setSuffix(Format._GIF.getFormat());
                 if (fileService.save(myFile)) {
-                    return new Result("200","上传成功");
+                    return new Result("200","上传成功",dns+Format._GIF.getFormat()+File.separator+filename);
                 }
             }
         }

@@ -12,10 +12,14 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.system.ApplicationHome;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -40,25 +44,24 @@ public class MomentController {
     @Autowired
     private RedisTemplate redisTemplate;
 
-
-
-
     /**
      * 发布朋友圈
      * @param momentImgs
      * @return
      */
+    @ApiParam("只需要内容，图片路径（String数组）和发布者id")
     @PostMapping("/publish")
-    public RespBean publishMoment(@ApiParam("只需要内容，图片路径（String数组）和发布者id") @RequestBody MomentImgs momentImgs){
+    public RespBean publishMoment(@ApiParam("只需要内容，图片路径（String数组）和发布者id") @RequestBody MomentImgs momentImgs) {
+
         Moment moment = new Moment();
         moment.setContent(momentImgs.getContent());
         moment.setUserId(momentImgs.getUserId());
         moment.setLikeNum(0);
         List<String> imgList = momentImgs.getImgSrcs(); //发布朋友圈的图片的链接列表，在此之前图片应已上传
         //如果朋友圈发布成功，就将该朋友圈的图片路径存入MomentImg表内
-        if(momentService.save(moment)){
+        if (momentService.save(moment)) {
             List<MomentImg> list = new ArrayList<>();
-            for(int i=0;i<imgList.size();i++){
+            for (int i = 0; i < imgList.size(); i++) {
                 MomentImg img = new MomentImg();
                 img.setMomentId(moment.getId());
                 img.setImgSrc(imgList.get(i));
@@ -69,6 +72,7 @@ public class MomentController {
         }
         return RespBean.error(RespBeanEnum.MOMENT_PUBLISH_ERROR);
     }
+
 
     /**
      * 查询某用户发布的朋友圈
@@ -184,7 +188,7 @@ public class MomentController {
      */
     @PostMapping("/publishComment")
     public RespBean publishComment(@ApiParam("只需要内容，父id(父id表示")@RequestBody MomentComment momentComment){
-        if(momentComment.getFatherId()==""){
+        if(momentComment.getFatherId() == ""){
             momentComment.setFatherId(null);
         }
         if(momentCommentService.save(momentComment)){
@@ -192,7 +196,7 @@ public class MomentController {
             UserVo userVo = new UserVo();
             userVo.setUserAvatar(user.getUserAvatar());
             userVo.setUserId(user.getUserId());
-            userVo.setUserNickname(user.getUserAvatar());
+            userVo.setUserNickname(user.getUserNickname());
             return RespBean.success(userVo);
         }
         return RespBean.error(RespBeanEnum.MOMENT_COMMENT_PUBLISH_ERROR);

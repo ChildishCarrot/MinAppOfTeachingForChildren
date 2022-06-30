@@ -27,11 +27,6 @@ public class myFile implements Serializable {
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
-    /**
-     * 用户ID，用户上传时需要带上自己的唯一性ID
-     */
-    @NotNull
-    private Long uid;
 
     /**
      * 上传后的文件名称

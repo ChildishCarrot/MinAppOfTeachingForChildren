@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.gdut.minsappofteachingforchildren.MinsAppOfTeachingForChildrenApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.331 s - in com.gdut.minsappofteachingforchildren.MinsAppOfTeachingForChildrenApplicationTests
